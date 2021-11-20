@@ -34,7 +34,6 @@ var nomeCompleto = nome + " " + sobrenome;
 ('JavaScript é "super" fácil');
 `JavaScript é "super" fácil"`;
 //"JavaScript é "super" fácil"; // Inválido
-//COPIAR
 //Não necessariamente precisamos atribuir valores a uma variável
 
 // TEMPLATE STRING
