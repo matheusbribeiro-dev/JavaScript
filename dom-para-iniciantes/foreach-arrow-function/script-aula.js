@@ -1,48 +1,69 @@
-//SELETOR GERAL ÚNICO
-//querySelector retorna o primeiro elemento que combinar com o seu seletor CSS.
+//FOREACH
+//Constantemente vamos selecionar uma lista de itens do dom. A melhor forma para interagirmos com os mesmos é utilizando o método forEach.
 
-const animais = document.querySelector(".animais");
-const contato = document.querySelector("#contato");
-const ultimoItem = document.querySelector(".animais-lista li:last-child");
-const linkCSS = document.querySelector('[href^="https://"]');
-const primeiroUl = document.querySelector("ul");
+const imgs = document.querySelectorAll("img");
 
-// Busca dentro do Ul apenas
-const navItem = primeiroUl.querySelector("li");
-
-//SELETOR GERAL LISTA
-//querySelectorAll retorna todos os elementos compatíveis com o seletor CSS em uma NodeList
-
-const gridSection = document.querySelectorAll(".grid-section");
-const listas = document.querySelectorAll("ul");
-const titulos = document.querySelectorAll(".titulo");
-const fotosAnimais = document.querySelectorAll(".animais-lista img");
-
-// Retorna o segundo elemento
-console.log(gridSection[1]);
-//Diferente do getElementsByClassName, a lista aqui é estática
-
-//HTMLCOLLECTION VS NODELIST
-//A diferença está nos métodos e propriedades de ambas. Além disso a NodeList retornada com querySelectorAll é estática.
-
-const titulo = document.querySelector(".titulo");
-const gridSectionHTML = document.getElementsByClassName("grid-section");
-const gridSectionNode = document.querySelectorAll(".grid-section");
-
-titulo.classList.add("grid-section");
-
-console.log(gridSectionHTML); // 4 itens
-console.log(gridSectionNode); // 3 itens
-
-//ARRAY-LIKE
-//HTMLCollection e NodeList são array-like, parecem uma array mas não são. O método de Array forEach() por exemplo, existe apenas em NodeList.
-
-const gridSection = document.querySelectorAll(".grid-section");
-
-gridSection.forEach(function (gridItem, index, array) {
-  gridItem.classList.add("azul");
-  console.log(index); // index do item na array
-  console.log(array); // a array completa
+imgs.forEach(function (item) {
+  console.log(item);
 });
 
-//É possível transformar array-like em uma Array real, utilizando o método Array.from(gridSection)
+//PARÂMETROS DO FOREACH
+//O primeiro parâmetro é o callback, ou seja, a função que será ativada a cada item. Esse função pode receber três parâmetros: valorAtual, index e array;
+
+const imgs = document.querySelectorAll("img");
+
+imgs.forEach(function (valorAtual, index, array) {
+  console.log(item); // o item atual no loop
+  console.log(index); // o número do index
+  console.log(array); // a Array completa
+});
+
+//FOREACH E ARRAY
+//forEach é um método de Array, alguns objetos array-like possuem este método. Caso não possua, o ideal é transformá-los em uma array.
+
+const titulos = document.getElementsByClassName("titulo");
+const titulosArray = Array.from(titulos);
+
+titulosArray.forEach(function (item) {
+  console.log(item);
+});
+
+//ARROW FUNCTION
+//Sintaxe curta em relação a function expression. Basta remover a palavra chave function e adicionar a fat arrow => após os argumentos.
+
+const imgs = document.querySelectorAll("img");
+
+imgs.forEach((item) => {
+  console.log(item);
+});
+
+//ARGUMENTOS E PARÊNTESES
+const imgs = document.querySelectorAll("img");
+
+// argumento único não precisa de parênteses
+imgs.forEach((item) => {
+  console.log(item);
+});
+
+// multiplos argumentos precisam de parênteses
+imgs.forEach((item, index) => {
+  console.log(item, index);
+});
+
+// sem argumentos precisa dos parênteses, mesmo vazio
+let i = 0;
+imgs.forEach(() => {
+  console.log(i++);
+});
+//É melhor utilizar os parênteses
+
+//RETURN
+//É possível omitir as chaves {} para uma função que retorna uma linha.
+
+const imgs = document.querySelectorAll("img");
+
+imgs.forEach((item) => console.log(item));
+
+imgs.forEach((item) => console.log(item));
+
+//Não é permitido fechar a linha com ;

@@ -1,21 +1,21 @@
-//EXERCÍCIO
-// Retorne no console todas as imagens do site
+// Mostre no console cada parágrado do site
+const pS = document.querySelectorAll("p");
+
+pS.forEach((p) => console.log(p));
+
+// Mostre o texto dos parágrafos no console
+pS.forEach((p) => console.log(p.innerText));
+
+// Como corrigir os erros abaixo:
 const imgs = document.querySelectorAll("img");
-console.log(imgs);
 
-// Retorne no console apenas as imagens que começaram com a palavra imagem
-const imgsName = document.querySelectorAll('img[src^="img/imagem"]');
+imgs.forEach((item, index) => {
+  console.log(item, index);
+});
 
-// Selecione todos os links internos (onde o href começa com #)
-const initHref = document.querySelectorAll('[href^="#"]');
-console.log(initHref);
+let i = 0;
+imgs.forEach(() => {
+  console.log(i++);
+});
 
-// Selecione o primeiro h2 dentro de .animais-descricao
-const h2 = document.querySelector(".animais-descricao h2");
-console.log(h2);
-
-// Selecione o último p do site
-const pSite = document.querySelectorAll("p");
-const lastP = pSite[--pSite.length];
-
-console.log(lastP);
+imgs.forEach(() => i++);
