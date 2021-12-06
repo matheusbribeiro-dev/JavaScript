@@ -206,3 +206,7 @@ body {
     margin-bottom: 0px;
   }
 }
+
+.moreSizeFont {
+  font-size: 2rem !important;
+}
